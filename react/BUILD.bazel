@@ -30,7 +30,7 @@ webpack(
     output_dir = True,
     args = [
         "$(execpath src/index.js)",
-        "--config",
+       "--config",
         "$(execpath webpack-prod.config.js)",
         "--mode",
         "production",
@@ -42,7 +42,7 @@ webpack(
         "webpack-prod.config.js",
         ":create_react_app",
         "//:package_json",
-        "//react/src-bazel/my_component",
+        "//react/src-bazel/my_component:my_component",
         "@npm//:node_modules"
     ]
 )
@@ -58,7 +58,7 @@ webpack_dev_server(
         "webpack-dev.config.js",
         ":create_react_app",
         "//:package_json",
-        "//react:my_component",
+        "//react/src-bazel/my_component:my_component",
         "@npm//:node_modules"
     ],
     tags = [
@@ -83,7 +83,7 @@ jest_test(
     deps = [
         ":create_react_app",
         "//:package_json",
-        "//react:my_component",
+        "//react/src-bazel/my_component:my_component",
         "@npm//:node_modules"
     ]
 )
